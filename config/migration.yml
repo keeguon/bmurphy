@@ -1,0 +1,6 @@
+---
+name:                 'BMurphy Migrations'
+table_name:           'migration_versions'
+migrations_namespace: 'BMurphy\Migrations'
+migrations_directory: 'src/BMurphy/Migrations'
+

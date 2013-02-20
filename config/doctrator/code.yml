@@ -1,0 +1,13 @@
+BMurphy\Models\Code:
+  table: codes
+  columns:
+    id:        { id: auto, type: integer }
+    client_id: { type: integer, nullable: false }
+    user_id:   { type: integer, nullable: false }
+    code:      { type: string, length: 255 }
+    valid:     { type: boolean, default: true }
+  many_to_one:
+    client: { class: BMurphy\Models\Client, inversedBy: codes }
+    user:   { class: BMurphy\Models\User, inversedBy: codes }
+  behaviors:
+    - { class: Doctrator\Behavior\Timestampable, options: { created_column: 'created', updated_column: 'updated' } }

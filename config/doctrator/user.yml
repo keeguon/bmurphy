@@ -1,0 +1,14 @@
+BMurphy\Models\User:
+  table: users
+  columns:
+    id:       { id: auto, type: integer } 
+    username: { type: string, length: 255, unique: true, nullable: false }
+    email:    { type: string, length: 255, unique: true, nullable: false }
+    salt:     { type: string, length: 255, unique: true }
+    password: { type: string, lenght: 255, unique: true }
+  one_to_many:
+    clients: { class: BMurphy\Models\Client, mappedBy: user }
+    codes:   { class: BMurphy\Models\Code, mappedBy: user }
+    tokens:  { class: BMurphy\Models\AccessToken, mappedBy: user }
+  behaviors:
+    - { class: Doctrator\Behavior\Timestampable, options: { created_column: 'created', updated_column: 'updated' } }

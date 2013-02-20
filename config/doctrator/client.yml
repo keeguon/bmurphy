@@ -1,0 +1,19 @@
+BMurphy\Models\Client:
+  table: clients
+  columns:
+    id:            { id: auto, type: integer }
+    user_id:       { type: integer }
+    name:          { type: string, length: 255 }
+    description:   { type: string, length: 1000, nullable: true }
+    website:       { type: string, length: 255, nullable: true } 
+    image:         { type: string, length: 255, nullable: true }
+    redirect_uri:  { type: string, length: 255, nullable: true }
+    client_id:     { type: string, length: 255 }
+    client_secret: { type: string, length: 255 }
+  many_to_one:
+    user: { class: BMurphy\Models\User, inversedBy: clients }
+  one_to_many:
+    codes:  { class: BMurphy\Models\Code, mappedBy: client }
+    tokens: { class: BMurphy\Models\AccessToken, mappedBy: client }
+  behaviors:
+    - { class: Doctrator\Behavior\Timestampable, options: { created_column: 'created', updated_column: 'updated' } }

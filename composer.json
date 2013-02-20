@@ -1,0 +1,39 @@
+{
+    "name": "bmurphy"
+  , "repositories": [
+        {
+            "type": "package"
+          , "package": {
+                "name": "keeguon/doctrator"
+              , "version": "1.0.2"
+              , "source": {
+                    "url": "https://github.com/Keeguon/doctrator.git"
+                  , "type": "git"
+                  , "reference": "master"
+                }
+              , "autoload": {
+                    "psr-0": {
+                        "Doctrator": "src/"
+                    }
+                }
+            }
+        }
+    ]
+  , "require": {
+        "doctrine/orm": "*"
+      , "doctrine/migrations": "dev-master"
+      , "keeguon/doctrator": "~1.0.0"
+      , "keeguon/oauth2-php": "~1.2.0"
+      , "mandango/mondator": "dev-master"
+      , "silex/silex": "dev-master"
+      , "symfony/console": "*"
+      , "symfony/finder": "*"
+      , "symfony/yaml": "*"
+    }
+  , "autoload": {
+        "psr-0": {
+            "BMurphy": "src/"
+          , "Doctrator": "src/"
+        }
+    }
+}

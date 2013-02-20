@@ -1,0 +1,15 @@
+BMurphy\Models\AccessToken:
+  table: tokens
+  columns:
+    id:            { id: auto, type: integer }
+    client_id:     { type: integer, nullable: false }
+    user_id:       { type: integer, nullable: true }
+    token:         { type: string, length: 255, nullable: false }
+    lifetime:      { type: integer, nullable: true }
+    refresh_token: { type: string, length: 255, nullable: true }
+    valid:         { type: boolean, default: true }
+  many_to_one:
+    client: { class: BMurphy\Models\Client, inversedBy: tokens }
+    user:   { class: BMurphy\Models\User, inversedBy: tokens }
+  behaviors:
+    - { class: Doctrator\Behavior\Timestampable, options: { created_column: 'created', updated_column: 'updated' } }
